@@ -1,12 +1,13 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import get_object_or_404
+from django_filters import rest_framework
 from drf_spectacular.utils import (
     OpenApiExample,
     OpenApiParameter,
     extend_schema,
     extend_schema_view,
 )
-from rest_framework import status, viewsets
+from rest_framework import filters, status, viewsets
 from rest_framework.response import Response
 
 from apps.products.api.serializers import (
@@ -14,7 +15,9 @@ from apps.products.api.serializers import (
     ListProductSerializer,
     UpdateProductSerializer,
 )
+from apps.products.filters import ProductFilterSet
 from apps.products.models import Product
+from apps.products.pagination import ExtendedPagination
 
 
 @extend_schema_view(
@@ -24,20 +27,51 @@ from apps.products.models import Product
 class ProductViewSet(viewsets.GenericViewSet):
     serializer_class = CreateProductSerializer
     list_serializer_class = ListProductSerializer
+    queryset = Product.objects.all()
+    filter_backends = [
+        filters.SearchFilter,
+        filters.OrderingFilter,
+        rest_framework.DjangoFilterBackend,
+    ]
+    filterset_class = ProductFilterSet
+    search_fields = ("nombre", "precio", "disponible")
+    ordering_fields = (
+        "nombre",
+        "precio",
+    )
+    pagination_class = ExtendedPagination
 
     def get_queryset(self):
-        if self.queryset is None:
-            # self.queryset = self.serializer_class.Meta.model.objects.filter(
-            #     disponible=True
-            # )
-            self.queryset = Product.objects.all()
-            return self.queryset
+        queryset = self.queryset
+        if isinstance(queryset, QuerySet):
+            # Ensure queryset is re-evaluated on each request.
+            queryset = queryset.all()
+        return queryset
+
+        # if self.queryset is None:
+        # self.queryset = self.serializer_class.Meta.model.objects.filter(
+        #     disponible=True
+        # )
+        # self.queryset = Product.objects.all()
+        # return self.queryset
 
     def get_object(self, pk):
         return get_object_or_404(self.serializer_class.Meta.model, pk=pk)
 
     @extend_schema(
         request=ListProductSerializer,
+        parameters=[
+            OpenApiParameter(
+                name="ordering",
+                location=OpenApiParameter.QUERY,
+                description="The fields can you use for ordering the results is: nombre and precio",
+            ),
+            OpenApiParameter(
+                name="search",
+                location=OpenApiParameter.QUERY,
+                description="The field can you use for search is: nombre, precio and disponible",
+            ),
+        ],
         examples=[
             OpenApiExample(
                 "Example 1",
@@ -56,6 +90,11 @@ class ProductViewSet(viewsets.GenericViewSet):
         Get a collection of Products
         """
         queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.serializer_class(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
         serializer = self.list_serializer_class(queryset, many=True)
         return Response(serializer.data)
 
