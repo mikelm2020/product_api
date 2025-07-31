@@ -84,6 +84,10 @@ runserver: ## Inicia el servidor de desarrollo de Django
 shell: ## Accede al shell interactivo de Django
 	$(DOCKER_COMPOSE_COMMAND) exec web $(PYTHON_COMMAND) shell
 
+# Acceder al shell de la base de datos de Django
+dbshell: ## Accede al shell interactivo de Django
+	$(DOCKER_COMPOSE_COMMAND) exec web $(PYTHON_COMMAND) dbshell
+
 # Generar la Django Secret Key
 secretkey: ## Genera una nueva Django SECRET_KEY
 	$(DOCKER_COMPOSE_COMMAND) exec web $(PYTHON_COMMAND) -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
@@ -113,4 +117,4 @@ clean-docker-images: ## Elimina imágenes de Docker no usadas
 help: ## Muestra esta ayuda
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: up up-clean down down-clean build rebuild ps logs startapp makemigrations migrate createsuperuser runserver shell secretkey clean-pyc clean-docker-images help
+.PHONY: up up-clean down down-clean build rebuild ps logs startapp makemigrations migrate createsuperuser runserver shell dbshell secretkey clean-pyc clean-docker-images help
