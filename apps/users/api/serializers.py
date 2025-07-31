@@ -27,7 +27,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "username"
+        fields = ("username",)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -52,7 +52,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "username"
+        fields = ("username",)
 
         def to_representation(self, instance):
             return {

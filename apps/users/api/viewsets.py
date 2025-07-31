@@ -10,11 +10,11 @@ from apps.users.api.serializers import (
     UserSerializer,
 )
 
-serializer_class = UserSerializer
-list_serializer_class = UserListSerializer
-
 
 class UserViewSet(viewsets.GenericViewSet):
+    serializer_class = UserSerializer
+    list_serializer_class = UserListSerializer
+
     def get_queryset(self):
         if self.queryset is None:
             self.queryset = self.serializer_class.Meta.model.objects.filter(
@@ -86,7 +86,7 @@ class UserViewSet(viewsets.GenericViewSet):
         Get an user
         """
         user = self.get_object(pk)
-        user_serializer = self.serializer_class(user)
+        user_serializer = self.list_serializer_class(user)
         return Response(user_serializer.data)
 
     @extend_schema(request=UserSerializer)
