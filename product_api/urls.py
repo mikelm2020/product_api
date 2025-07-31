@@ -23,8 +23,12 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
+from apps.users.views import Login, Logout
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("login/", Login.as_view(), name="login"),
+    path("logout/", Logout.as_view(), name="logout"),
     path("schema/", SpectacularAPIView.as_view(), name="schema"),
     # Optional UI:
     path(

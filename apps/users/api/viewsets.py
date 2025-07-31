@@ -25,6 +25,7 @@ class UserViewSet(viewsets.GenericViewSet):
     def get_object(self, pk):
         return get_object_or_404(self.serializer_class.Meta.model, pk=pk)
 
+    @extend_schema(request=PasswordSerializer, responses={200: None})
     @action(methods=["post"], detail=True)
     def set_password(self, request, pk=None):
         """
@@ -44,6 +45,7 @@ class UserViewSet(viewsets.GenericViewSet):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
+    @extend_schema(request=UserListSerializer)
     def list(self, request, *args, **kwargs):
         """
         Get a collection of users
@@ -58,6 +60,7 @@ class UserViewSet(viewsets.GenericViewSet):
         serializer = self.list_serializer_class(queryset, many=True)
         return Response(serializer.data)
 
+    @extend_schema(request=UserSerializer, responses={201: None})
     def create(self, request):
         """
         Create an user
@@ -77,6 +80,7 @@ class UserViewSet(viewsets.GenericViewSet):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
+    @extend_schema(request=UserSerializer)
     def retrieve(self, request, pk=None):
         """
         Get an user
