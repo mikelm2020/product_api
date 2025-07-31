@@ -78,7 +78,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Acerca del Proyecto
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/mikelm2020/product_api/blob/82a8c694a418723faacf992c5dd76b6e328120f8/api_playlists.png)
 
@@ -95,7 +95,7 @@ Los objetivos del proyecto son:
 
 
 
-### Built With
+### Construido con
 
 
 
@@ -111,17 +111,17 @@ Los objetivos del proyecto son:
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Empezando
 
 
-### Prerequisites
+### Prerequisitos
 
 Este proyecto requiere que se instale docker y make
 
 
 
 
-### Installation
+### Instalación
 
 
 1. Clonar el repositorio
@@ -153,7 +153,7 @@ Este proyecto requiere que se instale docker y make
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Uso
 
 Entrar al link de demo en este archivo:
 1. Crear un usuario en el endpoint post/api/users
@@ -174,7 +174,7 @@ Entrar al link de demo en este archivo:
 <!-- ROADMAP -->
 
 <!-- CONTACT -->
-## Contact
+## Contacto
 
 Miguel Angel López Monroy - [@miguellopezmdev](https://twitter.com/miguellopezmdev) - miguel.lopezm.dev@gmail.com
 
@@ -185,9 +185,9 @@ Project Link: [https://service-streaming.onrender.com/](https://service-streamin
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## Agradecimientos
 
-My favorite resources used:
+Mis recuros favoritos usados:
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [Django Documentation](https://docs.djangoproject.com/es/5.2/)
