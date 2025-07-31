@@ -1,0 +1,6 @@
+Django>=4.2
+djangorestframework
+python-dotenv
+drf-spectacular
+drf-standardized-errors
+djangorestframework-simplejwt
