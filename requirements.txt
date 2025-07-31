@@ -4,3 +4,4 @@ python-dotenv
 drf-spectacular
 drf-standardized-errors
 djangorestframework-simplejwt
+django-filter
