@@ -56,6 +56,7 @@ THIRD_PARTY_APPS = [
     "drf_standardized_errors",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+    "django_filters",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
