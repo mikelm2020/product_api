@@ -42,4 +42,5 @@ urlpatterns = [
         name="redoc",
     ),
     re_path(r"^api/", include("apps.users.api.routers")),
+    re_path(r"^api/", include("apps.products.api.routers")),
 ]
