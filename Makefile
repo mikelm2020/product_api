@@ -7,6 +7,7 @@ PROJECT_NAME = api_producto
 DJANGO_APP_NAME = api
 DOCKER_COMPOSE_COMMAND = docker compose
 PYTHON_COMMAND = python manage.py
+PYTEST_COMMAND = pytest -v
 
 # ==============================================================================
 # Comandos principales (Comandos Docker Compose)
@@ -101,6 +102,14 @@ endif
 	$(DOCKER_COMPOSE_COMMAND) exec web python $(file)
 
 # ==============================================================================
+# Comandos adicionales dentro del contenedor 'web')
+# ==============================================================================
+
+# Ejecuta pruebas de pytest
+test: ## Ejecuta pruebas de pytest en el contenedor
+	$(DOCKER_COMPOSE_COMMAND) exec web $(PYTEST_COMMAND)
+
+# ==============================================================================
 # Limpieza
 # ==============================================================================
 
@@ -117,4 +126,4 @@ clean-docker-images: ## Elimina imágenes de Docker no usadas
 help: ## Muestra esta ayuda
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: up up-clean down down-clean build rebuild ps logs startapp makemigrations migrate createsuperuser runserver shell dbshell secretkey clean-pyc clean-docker-images help
+.PHONY: up up-clean down down-clean build rebuild ps logs startapp makemigrations migrate createsuperuser runserver shell dbshell secretkey rub-script test clean-pyc clean-docker-images help
