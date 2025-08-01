@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mikelm2020/product_api">
-    <img src="https://github.com/mikelm2020/product_api/blob/961be498851fc7b1e9d940550e7eb54ea3b2130f/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/mikelm2020/product_api/main/assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">product_api</h3>
@@ -155,7 +155,7 @@ Este proyecto requiere que se instale docker y make
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-Entrar al link de demo en este archivo:
+Entrar al link de la demo en este archivo:
 1. Crear un usuario en el endpoint post/api/users
 2. Login con username y pasword en el edpoint post/login
 3. Copar token
@@ -165,6 +165,32 @@ Entrar al link de demo en este archivo:
 7. Clic en  el botón close
 8. Can you use the API
 9. Ejecutar los endpoints deseados
+
+# Comandos importantes
+
+
+Para crear las migraciones
+```sh
+   make makemigrations
+```
+Para aplicar las migraciones
+```sh
+   make migrate
+```
+Para iniciar el servidor
+```sh
+   make up
+```
+Para ejecutar las pruebas
+```sh
+   make test
+```
+Para ver la ayuda de los comandos del Makefile
+```sh
+   make help
+```
+
+  
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -178,7 +204,7 @@ Entrar al link de demo en este archivo:
 
 Miguel Angel López Monroy - [@miguellopezmdev](https://twitter.com/miguellopezmdev) - miguel.lopezm.dev@gmail.com
 
-Project Link: [https://service-streaming.onrender.com/](https://service-streaming.onrender.com/)
+Project Link: [http://localhost:8000/](http://localhost:8000/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
