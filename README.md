@@ -82,7 +82,7 @@
 
 ![Product Name Screen Shot](https://raw.githubusercontent.com/mikelm2020/product_api/main/assets/api.png)
 
-This is a personal project because I love the series and with this I like management the playlists made in local mode
+
 
 Los objetivos del proyecto son:
 * Usar JWT con un modelo de usuario personalizado
