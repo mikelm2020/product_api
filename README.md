@@ -80,7 +80,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Acerca del Proyecto
 
-[![Product Name Screen Shot][product-screenshot]](https://raw.githubusercontent.com/mikelm2020/product_api/main/assets/api.png)
+![Product Name Screen Shot](https://raw.githubusercontent.com/mikelm2020/product_api/main/assets/api.png)
 
 This is a personal project because I love the series and with this I like management the playlists made in local mode
 
@@ -166,7 +166,7 @@ Entrar al link de la demo en este archivo:
 8. Can you use the API
 9. Ejecutar los endpoints deseados
 
-# Comandos importantes
+### Comandos importantes
 
 
 Para crear las migraciones
