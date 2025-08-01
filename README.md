@@ -193,22 +193,22 @@ Para ver la ayuda de los comandos del Makefile
 ### Pruebas unitarias y de endpoints
 Para Usuarios:
 
-test_list_users: Verifica que se listen correctamente los usuarios activos
-test_create_user: Verifica la creación de usuarios con username y password
-test_retrieve_user: Verifica que se puede obtener un usuario específico
-test_set_password: Verifica el cambio de contraseña con validación
-test_delete_user: Verifica el borrado lógico (cambio de is_active)
+* test_list_users: Verifica que se listen correctamente los usuarios activos
+* test_create_user: Verifica la creación de usuarios con username y password
+* test_retrieve_user: Verifica que se puede obtener un usuario específico
+* test_set_password: Verifica el cambio de contraseña con validación
+* test_delete_user: Verifica el borrado lógico (cambio de is_active)
 
 Para Productos:
 
-test_list_products: Verifica el listado de productos
-test_create_product: Verifica la creación de productos
-test_retrieve_product: Verifica obtener un producto específico
-test_update_product: Verifica la actualización de productos
-test_delete_product: Verifica el borrado lógico de productos
-test_filter_products: Verifica el filtrado por precio
-test_search_products: Verifica la búsqueda por nombre
-test_order_products: Verifica el ordenamiento
+* test_list_products: Verifica el listado de productos
+* test_create_product: Verifica la creación de productos
+* test_retrieve_product: Verifica obtener un producto específico
+* test_update_product: Verifica la actualización de productos
+* test_delete_product: Verifica el borrado lógico de productos
+* test_filter_products: Verifica el filtrado por precio
+* test_search_products: Verifica la búsqueda por nombre
+* test_order_products: Verifica el ordenamiento
 
 
   
