@@ -80,7 +80,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Acerca del Proyecto
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/mikelm2020/product_api/blob/82a8c694a418723faacf992c5dd76b6e328120f8/api_playlists.png)
+[![Product Name Screen Shot][product-screenshot]](https://raw.githubusercontent.com/mikelm2020/product_api/main/assets/api.png)
 
 This is a personal project because I love the series and with this I like management the playlists made in local mode
 
