@@ -5,3 +5,7 @@ drf-spectacular
 drf-standardized-errors
 djangorestframework-simplejwt
 django-filter>=21.1
+pytest
+pytest-django
+pytest-factoryboy
+faker

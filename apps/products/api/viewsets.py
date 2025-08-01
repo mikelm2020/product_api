@@ -45,7 +45,7 @@ class ProductViewSet(viewsets.GenericViewSet):
         queryset = self.queryset
         if isinstance(queryset, QuerySet):
             # Ensure queryset is re-evaluated on each request.
-            queryset = queryset.all()
+            queryset = queryset.all().order_by("id")  # Añadido orden por defecto
         return queryset
 
         # if self.queryset is None:
